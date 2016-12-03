@@ -6,18 +6,18 @@ foreach($_POST as $key => $val){
 	$$key = filter_var($val, FILTER_SANITIZE_STRING);
 	//echo $key."<br>";
 }
-if(!$email && !$phone){
-	echo 'Укажите номер телефона или email';
+if(!$name || !$name2 || !$name3 || !$series || !$number){
+	echo 'Все поля должны быть заполнены';
 	exit();
 }
-$to      = 'v628966@yandex.ru';
-$subject = 'Заявка на выкуп авто';
-$message = 'Заявка на выкуп автомобиля с сайта: Имя:'.$name.'. Номер телефон:'.($phone ? $phone : '').'. Email:'.($email ? $email : '').'. Марка автомобиля:'.$auto_mark.'. Модель автомобиля:'.$auto_model.'. Год выпуска:'.$auto_year.'. Описание авто:'.($auto_info ? $auto_info : '').'. Желаемая цена:'.($auto_price ? $auto_price : '').'.';
-$headers = 'From: site@628966.ru' . "\r\n" .
-    'Reply-To: site@628966.ru' . "\r\n" .
+$to      = 'slava@hmao-ugra.ru';
+$subject = 'Заявка на порубочный билет';
+$message = 'Заявка на порубочный билет с сайта: Имя:'.$name.'. Фамилия'.$name2.'. Отчество:'.$name3.'. Серия паспорта:'.$series.'. Номер паспорта:'.$number.'.';
+$headers = 'From: slava@hmao-ugra.ru' . "\r\n" .
+    'Reply-To: slava@hmao-ugra' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 if(mail($to, $subject, $message, $headers)){
-	echo 'Заявка успешно отправлена! С Вами свяжутся в ближайшее время.';
+	echo 'Заявка успешно отправлена! Ваш порубочный билет Вы сможете забрать после 15 декабря. Не забудьте паспорт.';
 }
 ?>
