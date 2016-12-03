@@ -6,7 +6,7 @@ foreach($_POST as $key => $val){
 	$$key = filter_var($val, FILTER_SANITIZE_STRING);
 	//echo $key."<br>";
 }
-if(!$name || !$name2 || !$name3 || !$series || !$number){
+if(!$name || !$name2 || !$name3 || !$series || !$number || $personal_data){
 	echo 'Все поля должны быть заполнены';
 	exit();
 }
